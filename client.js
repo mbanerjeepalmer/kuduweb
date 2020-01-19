@@ -35,15 +35,21 @@ let showContent = function (startURL) {
         console.log("Body is:", respJSON)
         let nextURL = parseResponse(respJSON, testFlag)
         populateIFrame(nextURL, iframeObject)
+        // Change value
+        urlForm.start_url.setAttribute('value', nextURL)
     }
     )
     .catch(err => {
         console.log("Catch error:", err)
+        let nextURL = 'https://www.theatlantic.com/technology/archive/2020/01/how-death-itunes-explains-2010s/604291/'
+        populateIFrame(nextURL, iframeObject)
+        // Change value
+        urlForm.start_url.value = nextURL
     })
 }
 
-let encodeURL = function(startURL, testFlag) {
-    let baseURL = testFlag ? 'https://jsonplaceholder.typicode.com/photos/1' : new URL('http://35.246.63.255:5000');
+let encodeURL = function(startURL) {
+    baseURL = new URL('http://0.0.0.0:5000/');
     baseURL.search = new URLSearchParams({'start_url': startURL}).toString();
     return baseURL
 }
@@ -53,9 +59,15 @@ let populateIFrame = function(url, iframeObject) {
     iframeObject.removeAttribute('hidden')
 }
 
+let swapForms = function(url){
+    // Hide URL input 
+
+    // Set button value to url
+
+}
+
 let parseResponse = function (jsonObject, testFlag) {
     // If testFlag is true then give the mock URL.
     let constantString = 'https://www.theatlantic.com/technology/archive/2020/01/how-death-itunes-explains-2010s/604291/'
     return testFlag ? constantString : jsonObject.next_url;
     }
-
