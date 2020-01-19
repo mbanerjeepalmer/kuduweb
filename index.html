@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kudu</title>
-</head>
-<body>
-    <iframe hidden id="mainContent"></iframe>
-    <form id="urlForm" method="POST">
-    <input type="text" name="start_url" id="urlInput">
-    <button type="submit" id="submitUrl">Let's go</button>
-    </form>
-<script src="./client.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Kudu</title>
+		<link
+			href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<iframe hidden id="mainContent"></iframe>
+		<img class="logo" src="logo.svg" title="kudu" />
+		<div class="container">
+			<h2>What’s the last thing you read that was remarkable?</h2>
+			<form id="urlForm" method="POST">
+				<input
+					type="text"
+					name="start_url"
+					id="urlInput"
+					placeholder="Paste article URL…"
+				/>
+				<button type="submit" id="submitUrl">
+					<img src="arrow.svg" title="kudu" />
+				</button>
+			</form>
+		</div>
+		<script src="./client.js"></script>
+	</body>
 </html>
